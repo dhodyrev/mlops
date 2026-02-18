@@ -209,3 +209,6 @@ __marimo__/
 
 02-experiments-tracking/data/
 02-experiments-tracking/mlruns/
+
+homework/hw2/data
+homework/hw2/output
