@@ -1,0 +1,15 @@
+services:
+  airflow:
+    build: .
+    entrypoint: /bin/bash
+    command: /start.sh
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./mlflow_data:/opt/airflow/mlflow_data
+    ports:
+      - "8080:8080"
+      - "5000:5000"
